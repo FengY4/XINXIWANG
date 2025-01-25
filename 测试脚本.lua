@@ -41,7 +41,7 @@ Heartbeat:Connect(HeartbeatUpdate)
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁漫中心』"; Text ="核对用户ID中♧"; Duration = 2; })
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁漫中心』"; Text ="用户ID核对完毕♣"; Duration = 4; })
 
-local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/FengY4/FengYu/refs/heads/main/Fengui.lua"))()        
+local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/FengY4/XINXIWANG/refs/heads/main/Fwngui.lua"))();        
 local win = ui:new("殺脚本")
 --
 local UITab1 = win:Tab("『信息』",'126423428509684')
