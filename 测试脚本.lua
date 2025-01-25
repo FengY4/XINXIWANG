@@ -38,19 +38,19 @@ local function HeartbeatUpdate()
 end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁漫中心』"; Text ="核对用户ID中♧"; Duration = 2; })
-game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁漫中心』"; Text ="用户ID核对完毕♣"; Duration = 4; })
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁漫中』"; Text ="核对用户ID中♧"; Duration = 2; })
+game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "『禁』"; Text ="用户ID核对完毕♣"; Duration = 4; })
 
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/FengY4/XINXIWANG/refs/heads/main/Fwngui.lua"))();        
-local win = ui:new("曹尼玛风御")
+local win = ui:new("风御0.9")
 --
 local UITab1 = win:Tab("『信息』",'7734068321')
 
 local about = UITab1:section("『作者信息』",false)
 
-about:Label("风御我曹尼玛")
-about:Label("你妈b死了")
-about:Label("XINXIWANG")
+about:Label("风御制做")
+about:Label("可里姆.exe支持")
+about:Label("风")
 about:Label("Amilkeskx的人机脚本")
 
 local about = UITab1:section("『玩家信息』",false)
