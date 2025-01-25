@@ -48,17 +48,10 @@ local UITab1 = win:Tab("『信息』",'7734068321')
 
 local about = UITab1:section("『作者信息』",false)
 
-about:Label("禁漫中心㍿")
-about:Label("作者QQ：198436746")
-about:Label("QQ主群：1001390385")
-about:Label("QQ2群： 950954309")
-about:Label("QQ3群： 930667114")
-about:Label("QQ4群： 956649660")
-about:Label("QQ5群： 363416230")
-about:Label("作者：丁丁")
-about:Label("进群发最新禁漫天堂")
-about:Label("脚本持续更新中")
-about:Label("脚本疯狂优化中")
+about:Label("风御我曹尼玛")
+about:Label("你妈b死了")
+about:Label("XINXIWANG")
+about:Label("Amilkeskx的人机脚本")
 
 local about = UITab1:section("『玩家信息』",false)
 
