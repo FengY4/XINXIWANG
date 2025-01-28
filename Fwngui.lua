@@ -1,3 +1,34 @@
+repeat task.wait() until game:IsLoaded()
+local library = {}
+local ToggleUI = false
+library.currentTab = nil
+library.flags = {}
+
+local services = setmetatable({}, {
+  __index = function(t, k)
+    return game.GetService(game, k)
+  end
+})
+
+local mouse = services.Players.LocalPlayer:GetMouse()
+
+function Tween(obj, t, data)
+	services.TweenService:Create(obj, TweenInfo.new(t[1], Enum.EasingStyle[t[2]], Enum.EasingDirection[t[3]]), data):Play()
+	return true
+end
+
+function Ripple(obj)
+	spawn(function()
+		if obj.ClipsDescendants ~= true then
+			obj.ClipsDescendants = true
+		end
+		local Ripple = Instance.new("ImageLabel")
+		Ripple.Name = "Ripple"
+		Ripple.Parent = obj
+		Ripple.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+		Ripple.BackgroundTransparency = 1.000
+		Ripple.ZIndex = 8
+		Ripple.Image = "rbxassetid://17894875649"
 		Ripple.ImageTransparency = 0.800
 		Ripple.ScaleType = Enum.ScaleType.Fit
 		Ripple.ImageColor3 = Color3.fromRGB(139, 0, 255)
@@ -64,8 +95,7 @@ function drag(frame, hold)
 			startPos = frame.Position
 
 			input.Changed:Connect(function()
-				if input.UserInputState == 
-Enum.UserInputState.End then
+				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
 				end
 			end)
@@ -186,7 +216,7 @@ end
       DropShadow.BackgroundTransparency = 1.000
       DropShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
       DropShadow.Size = UDim2.new(1, 10, 1, 10)
-      DropShadow.Image = "rbxassetid://118021861508545" --背景
+      DropShadow.Image = "rbxassetid://126423428509684" --背景
       DropShadow.ImageColor3 = Color3.fromRGB(255,255,255)
       DropShadow.SliceCenter = Rect.new(49, 49, 450, 450)
 
@@ -405,30 +435,30 @@ end
 -- Properties:
 
 Frame.Parent = dogent
-Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.00829315186, 0, 0.31107837, 0)
-Frame.Size = UDim2.new(0, 50, 0, 50)
+Frame.Size = UDim2.new(0, 25, 0, 25)
 Frame.BackgroundTransparency = 1.000
 
 UICorner.CornerRadius = UDim.new(0, 90)
 UICorner.Parent = Frame
 
 Open.Parent = Frame
-Open.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Open.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 Open.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Open.BorderSizePixel = 0
-Open.Size = UDim2.new(2, 5, 2, 5)
+Open.Size = UDim2.new(2, 2, 2, 2)
 Open.Active = true
 Open.Draggable = true
-Open.Image = "rbxassetid://126423428509684"
+Open.Image = "rbxassetid://82510747464845"
 Open.MouseButton1Click:Connect(function()
   Main.Visible = not Main.Visible
-  Open.Image = Main.Visible and "rbxassetid://82510747464845" or "rbxassetid://134089559373925" --开关的图
+  Open.Image = Main.Visible and "rbxassetid://134089559373925" or "rbxassetid://134089559373925" --开关的图
 end)
 
-UICorner_2.CornerRadius = UDim.new(0, 90)
+UICorner_2.CornerRadius = UDim.new(0, 40)
 UICorner_2.Parent = Open
 UIG.Parent = Open
       
@@ -454,7 +484,7 @@ UIG.Parent = Open
         TabIco.BackgroundTransparency = 1.000
         TabIco.BorderSizePixel = 0
         TabIco.Size = UDim2.new(0, 24, 0, 24)
-        TabIco.Image = "rbxassetid://7734068321" or icon and "rbxassetid://"..icon
+        TabIco.Image = "rbxassetid://82510747464845" or icon and "rbxassetid://"..icon
         TabIco.ImageTransparency = 0.2
         
         TabText.Name = "TabText"
@@ -729,7 +759,8 @@ UIG.Parent = Open
               SetState = function(self, state)
                 if state == nil then state = not library.flags[flag] end
                 if library.flags[flag] == state then return end
-                services.TweenService:Create(ToggleSwitch, TweenInfo.new(0.2), {Position = UDim2.new(0, (state and ToggleSwitch.Size.X.Offset / 2 or 0), 0, 0), BackgroundColor3 = (state and Color3.fromRGB(139, 0, 255) or beijingColor)}):Play()
+                services.TweenService:Create(ToggleSwitch, TweenInfo.new(0.2), {Position = UDim2.new(0, (state and ToggleSwitch.Size.X.Offset / 2 or 0), 0, 0), BackgroundColor3 = (state and Color3.fromRGB(139, 0, 255) or 
+beijingColor)}):Play()
                 library.flags[flag] = state
                 callback(state)
               end,
@@ -847,8 +878,7 @@ UIG.Parent = Open
               KeybindValue.Text = "..."
               wait()
               local key, uwu = services.UserInputService.InputEnded:Wait()
-              local keyName = 
-tostring(key.KeyCode.Name)
+              local keyName = tostring(key.KeyCode.Name)
               if key.UserInputType ~= Enum.UserInputType.Keyboard then
                 KeybindValue.Text = keyTxt
                 return
@@ -1109,7 +1139,8 @@ tostring(key.KeyCode.Name)
             }
     
             MinSlider.MouseButton1Click:Connect(function()
-              local currentValue = library.flags[flag]
+              local currentValue = 
+library.flags[flag]
               currentValue = math.clamp(currentValue - 1, min, max)
               funcs:SetValue(currentValue)
             end)
@@ -1233,80 +1264,6 @@ tostring(key.KeyCode.Name)
             DropdownTop.TextColor3 = ALcolor
             DropdownTop.TextSize = 16.000
             DropdownTop.TextXAlignment = Enum.TextXAlignment.Left
-            
-            DropdownTopC.CornerRadius = UDim.new(0, 6)
-            DropdownTopC.Name = "DropdownTopC"
-            DropdownTopC.Parent = DropdownTop
-            
-            DropdownOpen.Name = "DropdownOpen"
-            DropdownOpen.Parent = DropdownTop
-            DropdownOpen.AnchorPoint = Vector2.new(0, 0.5)
-            DropdownOpen.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
-            DropdownOpen.BackgroundTransparency = 1.000
-            DropdownOpen.BorderSizePixel = 0
-            DropdownOpen.Position = UDim2.new(0.918383181, 0, 0.5, 0)
-            DropdownOpen.Size = UDim2.new(0, 20, 0, 20)
-            DropdownOpen.Font = Enum.Font.Gotham
-            DropdownOpen.Text = "+"
-            DropdownOpen.TextColor3 = ALcolor
-            DropdownOpen.TextSize = 24.000
-            DropdownOpen.TextWrapped = true
-            
-            DropdownText.Name = "DropdownText"
-            DropdownText.Parent = DropdownTop
-            DropdownText.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
-            DropdownText.BackgroundTransparency = 1.000
-            DropdownText.BorderSizePixel = 0
-            DropdownText.Position = UDim2.new(0.0373831764, 0, 0, 0)
-            DropdownText.Size = UDim2.new(0, 184, 0, 38)
-            DropdownText.Font = Enum.Font.GothamSemibold
-            DropdownText.PlaceholderColor3 = Color3.fromRGB(139, 0, 255)
-            DropdownText.PlaceholderText = text
-            DropdownText.Text = ""
-            DropdownText.TextColor3 = Color3.fromRGB(139, 0, 255)
-            DropdownText.TextSize = 16.000
-            DropdownText.TextXAlignment = Enum.TextXAlignment.Left
-            
-            DropdownModuleL.Name = "DropdownModuleL"
-            DropdownModuleL.Parent = DropdownModule
-            DropdownModuleL.SortOrder = Enum.SortOrder.LayoutOrder
-            DropdownModuleL.Padding = UDim.new(0, 4)
-    
-            local setAllVisible = function()
-              local options = DropdownModule:GetChildren() 
-              for i=1, #options do
-                local option = options[i]
-                if option:IsA("TextButton") and option.Name:match("Option_") then
-                  option.Visible = true
-                end
-              end
-            end
-    
-            local searchDropdown = function(text)
-              local options = DropdownModule:GetChildren()
-              for i=1, #options do
-                local option = options[i]
-                if text == "" then
-                  setAllVisible()
-                else
-                  if option:IsA("TextButton") and option.Name:match("Option_") then
-                    if option.Text:lower():match(text:lower()) then
-                      option.Visible = true
-                    else
-                      option.Visible = false
-                    end
-                  end
-                end
-              end
-            end
-    
-            local open = false
-            local ToggleDropVis = function()
-              open = not open
-              if open then setAllVisible() end
-              DropdownOpen.Text = (open and "-" or "+")
-              DropdownModule.Size = UDim2.new(0, 428, 0, (open and DropdownModuleL.AbsoluteContentSize.Y + 4 or 38))
-            end
     
             DropdownOpen.MouseButton1Click:Connect(ToggleDropVis)
             DropdownText.Focused:Connect(function()
