@@ -42,7 +42,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/FengY4/XINXIWANG/refs/heads/main/Fwngui.lua"))();  
 local win = ui:new("Amilkeskx脚本")
 
-local UITab1 = win:Tab("『信息』",'97976172822916')
+local UITab1 = win:Tab("『信息』",'7733701455')
 
 local about = UITab1:section("查看作者信息",true)
 
@@ -88,7 +88,7 @@ about:Button("怕点不到才加的",function()
 
 end)
 
-local UITab2 = win:Tab("『公告』",'97976172822916')
+local UITab2 = win:Tab("『公告』",'6035145364')
 
 local about = UITab2:section("『公告』",true)
 
@@ -97,7 +97,7 @@ about:Label("UI是我借别人的，重要的事说三遍")
 about:Label("UI是我借别人的，重要的事说三遍")
 about:Label("UI是我借别人的，重要的事说三遍")     
 
-local UITab1 = win:Tab("通用",'97976172822916')
+local UITab1 = win:Tab("通用",'7733765398')
 
 local about = UITab1:section("『通用』",true)
 about:Slider("步行速度!", "WalkSpeed", game.Players.LocalPlayer.Character.Humanoid.WalkSpeed, 16, 400, false, function(Speed)
