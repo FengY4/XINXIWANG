@@ -31,6 +31,8 @@ local function HeartbeatUpdate()
     for Index = #FrameUpdateTable, 1, -1 do
         FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
     end
+    FpsLabel.Text = ("时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用联合脚本"; Text ="有什么脚本都可以和我说"; Duration = 2; })
