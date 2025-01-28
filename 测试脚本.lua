@@ -31,11 +31,6 @@ local function HeartbeatUpdate()
     for Index = #FrameUpdateTable, 1, -1 do
         FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
     end
-    FrameUpdateTable[1] = LastIteration
-    local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
-    CurrentFPS = CurrentFPS - CurrentFPS % 1
-    FpsLabel.Text = ("灾难时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
-end
 Start = tick()
 Heartbeat:Connect(HeartbeatUpdate)
 game:GetService("StarterGui"):SetCore("SendNotification",{ Title = "欢迎使用联合脚本"; Text ="有什么脚本都可以和我说"; Duration = 2; })
@@ -47,22 +42,18 @@ local UITab1 = win:Tab("『信息』",'7733701455')
 local about = UITab1:section("查看作者信息",true)
 
 about:Label("殺脚本中心")
-about:Label("支持无名死妈")
-about:Button("点击复制无名的名字",function()
-setclipboard("3814097685")
+about:Label("『殺脚本作者』")
+about:Button("点击复制作者的QQ号",function()
+setclipboard("1926190957")
 end)
-about:Label("我操你妈无名")
-about:Button("点击复活无名",function()
-setclipboard("877812092")
+about:Label("QQ主群")
+about:Button("点击复制主群",function()
+setclipboard("没有")
 end)
-about:Label("无名大人机")
-about:Button("点击廾死无名",function()
-setclipboard("1007844131")
-end)
-about:Label("作者：搬运工")
-about:Label("UI是我借别人的，重要的事说三遍")
-about:Label("UI是我借别人的，重要的事说三遍")
-about:Label("UI是我借别人的，重要的事说三遍")
+about:Label("作者：风御")
+about:Label("感谢大家游玩殺脚本")
+about:Label("此脚本属于逢合")
+about:Label("感谢大家支持殺脚本👍")
 
 local about = UITab1:section("查看玩家信息",true)
 
